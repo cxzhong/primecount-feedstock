@@ -2,8 +2,7 @@ set "CC=clang-cl.exe"
 set "CXX=clang-cl.exe"
 
 cmake -G Ninja %CMAKE_ARGS% ^
-    -DBUILD_STATIC_LIBS=OFF ^
-    -DBUILD_SHARED_LIBS=ON ^
+    -DBUILD_STATIC_LIBS=ON ^
     -DBUILD_TESTS=ON ^
     -DBUILD_LIBPRIMESIEVE=OFF ^
     .
