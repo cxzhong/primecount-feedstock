@@ -9,6 +9,7 @@ source:
   sha256: 870f2c17b660449d10a593b31d2c69e720ff8060ec1b5099c37f451c005f671e
   patches:
     - fix-to_chars-macos.patch  # [osx]
+    - fix-windows-shared-lib.patch  # [win]
 
 build:
   number: 0
@@ -36,6 +37,7 @@ test:
     - test -f "${PREFIX}/lib/libprimecount${SHLIB_EXT}"  # [unix]
     - if not exist %PREFIX%\\Library\\include\\primecount.h exit 1  # [win]
     - if not exist %PREFIX%\\Library\\lib\\primecount.lib exit 1  # [win]
+    - if not exist %PREFIX%\\Library\\bin\\primecount.dll exit 1  # [win]
 
     # Test CLIs.
     - primecount 1e5

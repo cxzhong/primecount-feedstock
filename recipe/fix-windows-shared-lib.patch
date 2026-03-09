@@ -1,0 +1,18 @@
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -51,14 +51,6 @@ option(WITH_LIBDIVIDE "Use libdivide.h" ${DEFAULT_LIBDIVIDE})
+ 
+ # Option sanity checks ###############################################
+ 
+-# We don't yet support building libprimecount as a shared DLL
+-# library on Windows using the MSVC compiler. The MSVC compiler
+-# by default does not allow accessing global variables that
+-# are inside a DLL, unless all those variables are annotated
+-# using __declspec(dllexport) and __declspec(dllimport).
+-if(WIN32 AND NOT MINGW)
+-    set(BUILD_SHARED_LIBS OFF)
+-endif()
+-
+ if(NOT BUILD_SHARED_LIBS AND NOT BUILD_STATIC_LIBS)
+     message(FATAL_ERROR "One or both of BUILD_SHARED_LIBS or BUILD_STATIC_LIBS must be set to ON!")
+ endif()
